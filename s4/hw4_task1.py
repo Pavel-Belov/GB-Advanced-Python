@@ -39,7 +39,6 @@ while True:
                        '2. Вывести максимальную сумму числа\n'
                        '3. Вывести минимальную сумму числа\n'
                        '4. Закрыть калькулятор\n'))
-
     if action == 1:
         result = digits_sum(number)
     elif action == 2:
@@ -50,5 +49,4 @@ while True:
         break
     else:
         print('Введите номер операции из списка')
-
     print(f'Ответ: {result}')

@@ -17,7 +17,6 @@ import random
 # Для упрощения ввода и лаконичности кода пусть пользователь вводит не строку, а цифру
 def rock_paper_scissors() -> str:
     print('Игра «Камень, ножницы, бумага»')
-
     while True:
         pc = random.randint(1, 3)
         pc_choice = ''
@@ -27,9 +26,7 @@ def rock_paper_scissors() -> str:
             pc_choice = 'ножницы'
         elif pc == 3:
             pc_choice = 'бумагу'
-
         player = int(input('Выберите вариант: 1-камень, 2-ножницы, 3-бумага, 4-Выход\n'))
-
         if player == pc:
             print(f'Компьютер показал {pc_choice}. У вас ничья!')
         elif (player == 1 and pc == 2) or (player == 2 and pc == 3) or (player == 3 and pc == 1):
@@ -45,10 +42,8 @@ def rock_paper_scissors() -> str:
 def guess_the_number():
     print('Игра «Угадай число»\nКомпьютер загадал число от 1 до 10')
     pc = random.randint(1, 10)
-
     while True:
         player = int(input('Введите число: '))
-
         if player < pc and 1 <= player <= 10:
             print('Загаданное число больше вашего. Попробуйте ещё раз.')
         elif player > pc and 1 <= player <= 10:
@@ -68,7 +63,6 @@ def main_menu():
               '3 - Выйти\n'
               '--------------------------------')
         game = int(input('Выберите, во что вы хотите поиграть: '))
-
         if game == 1:
             rock_paper_scissors()
         elif game == 2:

@@ -28,7 +28,7 @@ def calculate_danger(depth):
 def calculate_depth(max_danger, min_depth, max_depth):
     middle_depth = (min_depth + max_depth) / 2
     middle_danger = calculate_danger(middle_depth)
-    print(f'{middle_depth=:<30} {middle_danger=}')
+    # print(f'{middle_depth=:<20} {middle_danger=}')
 
     while abs(middle_danger) > max_danger:
         if middle_danger > 0:
@@ -37,7 +37,7 @@ def calculate_depth(max_danger, min_depth, max_depth):
             max_depth = middle_depth
         middle_depth = (min_depth + max_depth) / 2
         middle_danger = calculate_danger(middle_depth)
-        print(f'{middle_depth=:<30} {middle_danger=}')
+        # print(f'{middle_depth=:<20} {middle_danger=}')
 
     return middle_depth
 

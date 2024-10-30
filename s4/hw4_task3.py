@@ -29,7 +29,6 @@ def num_reverse(number: int) -> int:
 
 num1 = int(input('Введите первое число: '))
 num2 = int(input('Введите второе число: '))
-
 print(f'Первое число наоборот: {num_reverse(num1)}')
 print(f'Второе число наоборот: {num_reverse(num2)}')
 print(f'Сумма: {num_reverse(num1) + num_reverse(num2)}')

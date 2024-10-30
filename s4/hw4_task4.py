@@ -25,6 +25,5 @@ def maximum_of_three(n1: int, n2: int, n3: int) -> int:
 num1 = int(input('Введите первое число: '))
 num2 = int(input('Введите второе число: '))
 num3 = int(input('Введите третье число: '))
-
 result = maximum_of_three(num1, num2, num3)
 print(f'Максимальное из введённых чисел равно {result}')
