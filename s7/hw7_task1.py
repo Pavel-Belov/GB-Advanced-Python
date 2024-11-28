@@ -11,4 +11,57 @@
 # К ним прибавляется желаемое конечное имя, если оно передано. Далее счётчик файлов и расширение.
 # 6. Соберите из созданных на уроке и в рамках домашнего задания функций пакет для работы с файлами.
 
+from os import chdir
+from pathlib import Path
 
+
+def batch_rename_files(
+        path: Path,
+        end_name: str,
+        num_digits: int,
+        source_ext: str,
+        final_ext: str,
+        name_range: list[int]
+) -> None:
+    chdir(path)
+    if not path.is_dir():
+        raise FileNotFoundError(f'Каталог {path} не найден.')
+
+    files_list = [file for file in path.iterdir() if file.suffix == f'.{source_ext}']
+
+    if not files_list:
+        print(f'Файлы с расширением {source_ext} не найдены.')
+
+    for index, file in enumerate(files_list, start=1):
+        source_name = file.stem
+
+        if name_range:
+            start, end = name_range
+            final_name = source_name[start - 1:end]
+        else:
+            final_name = source_name
+
+        if final_name:
+            final_name += end_name
+
+        index_digits = len(str(index))
+        zero_digits = num_digits - index_digits
+        for i in range(zero_digits):
+            final_name += '0'
+        final_name += str(index)
+
+        if final_ext:
+            file.rename(f'{final_name}.{final_ext}')
+        else:
+            file.rename(f'{final_name}.{file.suffix}')
+
+
+if __name__ == '__main__':
+    batch_rename_files(
+        Path.cwd(),
+        '_task1_reresult_',
+        4,
+        'doc',
+        'txt',
+        [1, 4]
+    )
