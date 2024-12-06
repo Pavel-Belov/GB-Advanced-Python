@@ -44,11 +44,7 @@ def batch_rename_files(
         if final_name:
             final_name += end_name
 
-        index_digits = len(str(index))
-        zero_digits = num_digits - index_digits
-        for i in range(zero_digits):
-            final_name += '0'
-        final_name += str(index)
+        final_name += f'{index:0{num_digits}}'
 
         if final_ext:
             file.rename(f'{final_name}.{final_ext}')
@@ -59,8 +55,8 @@ def batch_rename_files(
 if __name__ == '__main__':
     batch_rename_files(
         Path.cwd(),
-        '_task1_reresult_',
-        4,
+        '1_hw7_',
+        10,
         'doc',
         'txt',
         [1, 4]
