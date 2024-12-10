@@ -14,8 +14,29 @@
 #
 # Результат:
 # Как дела? Хорошо.
-# А у меня не очень!
-# Ладно, держи свою функцию.
+# А у меня не очень! Ладно, держи свою функцию.
 # <Тут что-то происходит...>
 
+def how_are_you(func):
+    def wrapper(*args, **kwargs):
+        input('Как дела? ')
+        print('А у меня не очень! Ладно, держи свою функцию.')
+        result = func(*args, **kwargs)
+        return result
 
+    return wrapper
+
+
+@how_are_you
+def test():
+    print('<Тут что-то происходит...>')
+
+
+@how_are_you
+def test2(a: int, b: int) -> int:
+    return a + b
+
+
+if __name__ == '__main__':
+    test()
+    print(test2(10, 20))
